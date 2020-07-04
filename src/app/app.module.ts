@@ -4,15 +4,24 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { RouterModule } from '@angular/router';
+import { AngularComponent } from './angular/angular.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    AngularComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot ([
+      {path: 'welcome', component: WelcomeComponent},
+      {path: 'angular', component: AngularComponent},
+      {path: '', redirectTo: '/', pathMatch : 'full'},
+      {path: '**', redirectTo: '/', pathMatch : 'full'}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
